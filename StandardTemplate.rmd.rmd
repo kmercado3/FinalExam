@@ -1,7 +1,7 @@
 ---
 title: "Final Exam on Scorpion Behavior"
-author: "Put your name here!"
-date: "put the date here"
+author: "Katrina Mercado"
+date: "5-26-16"
 output: html_document
 ---
 
@@ -17,6 +17,28 @@ require(tigerstats)
 
 <In this section you explain what you are trying to show.  Where did the data come from?  What is the research or other question you are trying to answer?>
 
+Scorpion Behavior analysis derives from two comma seperated value files we received from a professor studying scorpions. The professor wants to know if scorpions have a sense of smell (or perhaps a nose). In order for us to accurately answer his inquiry, we must ask ourselves the following questions:
+
+Does the presence of odor change the expected outcome on our mearuements?
+
+Does the size of the scorpion change the expected outcome on our measurements?
+
+In the files the professor has given us, these are the measurements we received:
+
+* **scorpion**-a tag indicating which scorpion was emasured
+* **behavior** - a factor variable (no sting, dry sting, wet sting,jab)
+* **volume**-a numerical measure of venom amount (wet sting)
+* **probes**-a numerical count of the number of "hits" applied to get a reaction
+* **reaction_time**-a numerical measure of time it took to get a reaction
+* **size**-a factor(large, small) of scorpion size
+* **roll**-a factor-(control,threat) of absense or prescence of an apparent threat to the scorpion(rat urine)
+
+In this statistical analysis, there were 30 different scorpions tested. Each scorpion was tested twice:
+  * 1.) in control( no rat urine present)
+  * 2.) in threat (rat urine). 
+The order of testing was randomly assigned.
+
+One of the csv files refers to the individual tests run and has 60 observations. The other file is conveniently organized as paired data with observations of each scorpion in both threat and control conditions for conceinence in paired tests.
 #### what was asked for
 Investigate whether the odors from a predator might influence the defensive behavior of Hadrurus arizonensis, and if the scorpion size plays a role in the type of response.
 
@@ -38,7 +60,7 @@ a chi-squared test would be chosen.>
 
 
 # Methods for presence vs absence of odor
-
+In order to analyze the data and be able to understand the research questions we will need to have certain methods for how we plan to display our findings of the data analysis. For graphical results we will use a bar chart in order to clearly display the difference between the behavior of the scorpions when a threat is present or not present.This graph will visually display the difference between the scorpions when looking at their behavior when a threat is present or not.
 <Decide on your methods:  use "variable analysis" or other appropriate descriptors.  Make sure to choose at least one graphical method and at least one numerical method.>
 
 #Results
@@ -66,9 +88,7 @@ barchart(contTable,
 ```
 
 
-The bar graph clearly shows that the scorpions are much more likely to have a wet sting when a threat is present, than in the control group when the threat is not present.
-
-This plot shows that when we factor the reaction time for both the control and experimental group the comparison has a positive correlation which would indicate that the reaction time for the experiemental group has a direct correlation to the reaction time for the control group.
+The bar graph clearly shows that the scorpions are much more likely to have a wet sting when a threat is present, than in the control group when the threat is not present.The graph also shows that the scorpions would engage in some type of protective instinct whether it be a sting or a jab when the prescence of a threat is detected.The number of scorpions who would have a wet sting when the threat is present is significantly greater than the number of scorpions who do not have a threat present. More scorpions are shown to have a dry sting when there is no threat detected than when there is a threat detected. The overall analysis of this graph would show that when there is a threat present there is more likely to have a wet sting rather than when there is not a threat present which would make the scorpions more likely to have a dry sting.
 <Graphical results here.  Make sure to show your code.  Provide appropriate labels for axes, giving units if possible, and provide a good title for the graph, too.  Use the graphical results to describe the patterns if any that exist in the data as focused toward the research question>
 
 ### Numerical Descriptive Results
@@ -79,8 +99,8 @@ rol=table(roll,Behavior)
 rowPerc(rol)
 ```
 
-During the rowPerc test it clearly shows that the scorpions are more likely to have a wet sting when a threat is present as opposed to when there is no threat present. About 70% of the scorpions will have a wet sting when the threat is present; while those who did not have a threat present only about 7% had a wet sting.
-<Numerical results go here. Use the numerical results to describe the patterns if any that exist in the data as focused toward the research question>
+During the rowPerc test it clearly shows that the scorpions are more likely to have a wet sting when a threat is present as opposed to when there is no threat present. About 70% of the scorpions will have a wet sting when the threat is present; while those who did not have a threat present only about 7% had a wet sting. When a threat is present almost 17% of the scorpions would jab. In addition to when there is not a threat present 20% of the scorpions would jab. The fact that none of the scorpions would sting or jab when there was a threat present shows that scorpions are extrememly more likely to have some type of protective instinct when the threat is present. This would show that odor plays a huge role when comparing odor and the change in our measurements.
+
 
 ## Inferential Results
 ```{r}
